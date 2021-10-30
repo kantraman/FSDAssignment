@@ -47,6 +47,11 @@
     border-radius: 5px;
 }
 
+input::-ms-reveal, input::-ms-clear 
+{
+    display: none;
+}
+
 .frmBg
 {
     height: 100vh;
