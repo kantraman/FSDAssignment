@@ -122,6 +122,16 @@ input::-ms-reveal, input::-ms-clear
     background-image: url(../Images/DistLinks/Kollam.jpg);
 }
 
+.frmBgKot
+{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    display: table;
+    background-attachment: fixed;
+    background-image: url(../Images/DistLinks/Kottayam.jpg);
+}
+
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus 
 {
     background-image:none !important;
