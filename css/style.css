@@ -202,6 +202,13 @@ input::-ms-reveal, input::-ms-clear
     background-image: url(../Images/DistLinks/Wayanad.jpg);
 }
 
+.displayBadge
+{
+    margin-top: 5%; 
+    display: none; 
+    text-align :center;
+}
+
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus 
 {
     background-image:none !important;

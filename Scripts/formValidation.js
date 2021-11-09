@@ -40,3 +40,53 @@ function validateEmail(email) {
     else
         return true;
 }
+
+//Password Strength Checker 
+
+function StrengthChecker(PasswordParameter) {
+    let strengthBadge = document.getElementById('StrengthDisp')
+
+    // The strong and weak password Regex pattern checker
+    let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
+    let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.{10,}))')
+   
+    if (strongPassword.test(PasswordParameter)) {
+        strengthBadge.style.backgroundColor = "green"
+        strengthBadge.textContent = 'Strong'
+    } else if (mediumPassword.test(PasswordParameter)) {
+        strengthBadge.style.backgroundColor = 'orange'
+        strengthBadge.textContent = 'Medium'
+    } else {
+        strengthBadge.style.backgroundColor = 'red'
+        strengthBadge.textContent = 'Poor'
+    }
+}
+
+function PasswordInputListener() {
+    let password = document.getElementById('inputPassword')
+    let strengthBadge = document.getElementById('StrengthDisp')
+    let timeout;
+    strengthBadge.style.display = 'block'
+    clearTimeout(timeout);
+
+    timeout = setTimeout(() => StrengthChecker(password.value), 500);
+
+    if (password.value.length !== 0) {
+        strengthBadge.style.display != 'block'
+    } else {
+        strengthBadge.style.display = 'none'
+    }
+}
+
+//Phone number validation
+function phonenumber(inputtxt) {
+    var phoneno = /^(\(?([0-9]{3})\)?\-?([0-9]{3})\-?([0-9]{4}))|(\(?([0-9]{3})\)?\s?([0-9]{3})\s?([0-9]{4}))|(\(?([0-9]{3})\)?\.?([0-9]{3})\.?([0-9]{4}))$/;
+    if(phoneno.test(inputtxt)) {
+      return true;
+    }
+    else {
+      alert("message");
+      return false;
+    }
+  }
+
