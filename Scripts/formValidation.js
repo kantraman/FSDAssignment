@@ -9,14 +9,14 @@ function validateLoginEntry() {
     
     if (email.value.trim() == "") {
         email.style.border = "2px solid red";
-        Msg.innerHTML = "Email address cannot be empty.";
+        Msg.innerHTML = "- Email address cannot be empty.";
         blnReturn = false;
     }
     
     if (blnReturn) {
         blnReturn = validateEmail(email.value);
         if (!blnReturn) {
-            Msg.innerHTML = "Invalid email address.";
+            Msg.innerHTML = "- Invalid email address.";
             email.style.border = "2px solid red";
         }
     }
@@ -26,7 +26,7 @@ function validateLoginEntry() {
         pwd.style.border = "2px solid red";
         if (Msg.innerHTML.trim() != "")
             Msg.innerHTML += "<br>";
-        Msg.innerHTML += "Password cannot be empty.";
+        Msg.innerHTML += "- Password cannot be empty.";
         blnReturn = false;
     }
     
