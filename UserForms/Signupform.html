@@ -59,7 +59,7 @@
     
    
     <div class="container mt-5 pt-5 text-success ">
-      <form class="row g-3 row trpSec pb-3" action="../index.html">
+      <form class="row g-3 row trpSec pb-3" action="../index.html" onsubmit="return validateSignUpForm();">
         <div class="col-md-6 offset-md-3">
           <label id="frmTitle" class="fst-italic fs-3">Sign Up Form</label>
         </div>
@@ -76,11 +76,11 @@
           <label for="inputEmail" class="form-label">Email address</label>
         </div>
         <div class="form-floating mb-3 col-md-6 offset-md-3">
-          <input type="text" class="form-control" id="inputPhone" placeholder="Mobile No." aria-describedby="Mobile Number">
+          <input type="text" class="form-control" id="inputPhone" placeholder="Mobile No." data-bs-toggle="tooltip" data-bs-placement="top" title="Phone number should contain 10 digits. Accepted formats also include xxx xxx xxxx, xxx-xxx-xxxx, xxx.xxx.xxxx" aria-describedby="Mobile Number">
           <label for="inputPhone" class="form-label">Mobile No.</label>
         </div>
         <div class="form-floating mb-3 col-md-6 offset-md-3">
-          <input type="password" class="form-control" id="inputPassword" oninput="PasswordInputListener();" placeholder="Password">
+          <input type="password" class="form-control" id="inputPassword" oninput="PasswordInputListener();" placeholder="Password" data-bs-toggle="tooltip" data-bs-placement="top" title="Password should be minimum 8 characters with at least one uppercase, one lowercase, and one number.">
           <label for="inputPassword" class="form-label">Password</label>
           <span id="StrengthDisp" class="badge displayBadge">Weak</span>
         </div>

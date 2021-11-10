@@ -80,13 +80,109 @@ function PasswordInputListener() {
 
 //Phone number validation
 function phonenumber(inputtxt) {
-    var phoneno = /^(\(?([0-9]{3})\)?\-?([0-9]{3})\-?([0-9]{4}))|(\(?([0-9]{3})\)?\s?([0-9]{3})\s?([0-9]{4}))|(\(?([0-9]{3})\)?\.?([0-9]{3})\.?([0-9]{4}))$/;
+    var phoneno = /(^\d{10}$)|(^([0-9]{3})\-([0-9]{3})\-([0-9]{4})$)|(^([0-9]{3})\s([0-9]{3})\s([0-9]{4})$)|(^([0-9]{3})\.([0-9]{3})\.([0-9]{4})$)/;
     if(phoneno.test(inputtxt)) {
       return true;
     }
     else {
-      alert("message");
       return false;
     }
-  }
+}
+
+function validateSignUpForm() {
+    let firstName = document.getElementById("inputFirstName");
+    let lastName = document.getElementById("inputLastName");
+    let email = document.getElementById("inputEmail");
+    let phone = document.getElementById("inputPhone");
+    let psw = document.getElementById("inputPassword");
+    let rePsw = document.getElementById("inputRetypePassword");
+    let Msg = document.getElementById("Msg");
+
+    let strMsg = "";
+    let blnValid = true;
+
+    firstName.style.border = "";
+    lastName.style.border = "";
+    email.style.border = "";
+    psw.style.border = "";
+    rePsw.style.border = "";
+    phone.style.border = "";
+
+    Msg.innerHTML = "";
+
+    if (firstName.value.trim() == "") {
+        blnValid = false;
+        strMsg = "- Enter first name.<br>";
+        firstName.style.border = "4px solid red";
+    }
+
+    if (lastName.value.trim() == "") {
+        blnValid = false;
+        strMsg += "- Enter last name.<br>";
+        lastName.style.border = "4px solid red";
+    }
+
+    if (email.value.trim() == "") {
+        blnValid = false;
+        strMsg += "- Enter email address.<br>";
+        email.style.border = "4px solid red";
+    }
+    else {
+        if (blnValid) {
+            blnValid = validateEmail(email.value)
+            if (!blnValid) {
+                strMsg += "- Invalid email address.";
+                email.style.border = "4px solid red";
+            }
+        }
+    }
+
+    if (phone.value.trim() == "") {
+        blnValid = false;
+        strMsg += "- Enter mobile no.<br>";
+        phone.style.border = "4px solid red";
+    }
+    else {
+        if (blnValid) {
+            blnValid = phonenumber(phone.value)
+            if (!blnValid) {
+                strMsg += "- Invalid mobile phone.";
+                phone.style.border = "4px solid red";
+            }
+        }
+    }
+
+    if (psw.value.trim() == "") {
+        blnValid = false;
+        strMsg += "- Enter Password.<br>";
+        psw.style.border = "4px solid red";
+    }
+    else {
+        let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})')
+        if (!strongPassword.test(psw.value)) {
+            blnValid = false;
+            strMsg += "- Password should contain atleast an uppercase and lowercase alphabet and number.<br>";
+            psw.style.border = "4px solid red";
+        }
+    }
+
+    if (rePsw.value.trim() == "") {
+        blnValid = false;
+        strMsg += "- Retype Password.<br>";
+        rePsw.style.border = "4px solid red";
+    } else {
+        if (psw.value.trim() != rePsw.value.trim()) {
+            rePsw.value = "";
+            blnValid = false;
+            strMsg += "- Passwords dont match.<br>";
+            rePsw.style.border = "4px solid red";
+        }
+    }
+        
+
+    Msg.innerHTML = strMsg;
+    return blnValid;
+}
+    
+
 
