@@ -100,6 +100,8 @@ function validateSignUpForm() {
 
     let strMsg = "";
     let blnValid = true;
+    let blnValidEmail = true;
+    let blnValidPhone = true;
 
     firstName.style.border = "";
     lastName.style.border = "";
@@ -128,12 +130,12 @@ function validateSignUpForm() {
         email.style.border = "4px solid red";
     }
     else {
-        if (blnValid) {
-            blnValid = validateEmail(email.value)
-            if (!blnValid) {
-                strMsg += "- Invalid email address.";
-                email.style.border = "4px solid red";
-            }
+        blnValidEmail = validateEmail(email.value)
+        if (!blnValidEmail) {
+            blnValid = false;
+            strMsg += "- Invalid email address.<br>";
+            email.style.border = "4px solid red";
+            
         }
     }
 
@@ -143,12 +145,11 @@ function validateSignUpForm() {
         phone.style.border = "4px solid red";
     }
     else {
-        if (blnValid) {
-            blnValid = phonenumber(phone.value)
-            if (!blnValid) {
-                strMsg += "- Invalid mobile phone.";
-                phone.style.border = "4px solid red";
-            }
+        blnValidPhone = phonenumber(phone.value)
+        if (!blnValidPhone) {
+            blnValid = false;
+            strMsg += "- Invalid mobile phone.<br>";
+            phone.style.border = "4px solid red";
         }
     }
 
@@ -161,8 +162,9 @@ function validateSignUpForm() {
         let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})')
         if (!strongPassword.test(psw.value)) {
             blnValid = false;
-            strMsg += "- Password should contain atleast an uppercase and lowercase alphabet and number.<br>";
+            strMsg += "- Password should be minimum 8 characters with at least one uppercase, one lowercase, and one number.<br>";
             psw.style.border = "4px solid red";
+            rePsw.value = "";
         }
     }
 
