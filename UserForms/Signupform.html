@@ -64,28 +64,28 @@
           <label id="frmTitle" class="fst-italic fs-3">Sign Up Form</label>
         </div>
         <div class="form-floating mb-3 col-md-6 offset-md-3">
-          <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" aria-describedby="First Name">
+          <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" onblur="ShowHideBorder(this);" aria-describedby="First Name">
           <label for="inputFirstName" class="form-label">First Name</label>
         </div>
         <div class="form-floating mb-3 col-md-6 offset-md-3">
-          <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" aria-describedby="Last Name">
+          <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" onblur="ShowHideBorder(this);" aria-describedby="Last Name">
           <label for="inputLastName" class="form-label">Last Name</label>
         </div>
         <div class="form-floating mb-3 col-md-6 offset-md-3">
-          <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" aria-describedby="emailHelp">
+          <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com" onblur="ShowHideBorder(this);" aria-describedby="emailHelp">
           <label for="inputEmail" class="form-label">Email address</label>
         </div>
         <div class="form-floating mb-3 col-md-6 offset-md-3">
-          <input type="text" class="form-control" id="inputPhone" placeholder="Mobile No." data-bs-toggle="tooltip" data-bs-placement="top" title="Phone number should contain 10 digits. Accepted formats also include xxx xxx xxxx, xxx-xxx-xxxx, xxx.xxx.xxxx" aria-describedby="Mobile Number">
+          <input type="text" class="form-control" id="inputPhone" onblur="ShowHideBorder(this);" placeholder="Mobile No." data-bs-toggle="tooltip" data-bs-placement="top" title="Phone number should contain 10 digits. Accepted formats also include xxx xxx xxxx, xxx-xxx-xxxx, xxx.xxx.xxxx" aria-describedby="Mobile Number">
           <label for="inputPhone" class="form-label">Mobile No.</label>
         </div>
         <div class="form-floating mb-3 col-md-6 offset-md-3">
-          <input type="password" class="form-control" id="inputPassword" oninput="PasswordInputListener();" placeholder="Password" data-bs-toggle="tooltip" data-bs-placement="top" title="Password should be minimum 8 characters with at least one uppercase, one lowercase, and one number.">
+          <input type="password" class="form-control" id="inputPassword" oninput="PasswordInputListener();" onblur="ShowHideBorder(this);" placeholder="Password" data-bs-toggle="tooltip" data-bs-placement="top" title="Password should be minimum 8 characters with at least one uppercase, one lowercase, and one number.">
           <label for="inputPassword" class="form-label">Password</label>
           <span id="StrengthDisp" class="badge displayBadge">Weak</span>
         </div>
         <div class="form-floating mb-3 col-md-6 offset-md-3">
-          <input type="password" class="form-control" id="inputRetypePassword" placeholder="Password">
+          <input type="password" class="form-control" id="inputRetypePassword" oninput="ShowHideBorder(this)" placeholder="Password">
           <label for="inputRetypePassword" class="form-label"> Retype Password</label>
         </div>
         

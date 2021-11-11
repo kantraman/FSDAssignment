@@ -164,6 +164,7 @@ function validateSignUpForm() {
             blnValid = false;
             strMsg += "- Password should be minimum 8 characters with at least one uppercase, one lowercase, and one number.<br>";
             psw.style.border = "4px solid red";
+            psw.value = "";
             rePsw.value = "";
         }
     }
@@ -185,6 +186,36 @@ function validateSignUpForm() {
     Msg.innerHTML = strMsg;
     return blnValid;
 }
+
+function ShowHideBorder(obj) {
+    if (document.getElementById("Msg").innerHTML != "") {
+        if (obj.value.trim() == "") {
+            obj.style.border = "4px solid red";
+        } else {
+            obj.style.border = "";
+        }
+     
+        switch (obj.id) {
+            case "inputPassword":
+                let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})')
+                if (!strongPassword.test(obj.value))
+                    obj.style.border = "4px solid red";
+                break;
+            case "inputEmail":
+                if (!validateEmail(obj.value))
+                    obj.style.border = "4px solid red";
+                break;
+            case "inputPhone":
+                if (!phonenumber(obj.value))
+                    obj.style.border = "4px solid red";
+                break;
+    
+            default:
+                break;
+        }
+    }
+}
+
     
 
 
